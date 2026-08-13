@@ -94,12 +94,16 @@ on:
       - opened
       - edited
 
+permissions:
+  contents: read
+  issues: write
+
 jobs:
   analyze:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: a70win-wq/issue2repro@v1
+      - uses: a70win-wq/issue2repro@v0.1.0
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 ```
