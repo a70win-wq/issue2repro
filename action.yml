@@ -16,8 +16,8 @@ outputs:
     description: "Whether the report comment was created, updated or skipped."
 
 runs:
-  using: "node20"
-  main: "action-dist/index.js"
+  using: "node24"
+  main: "action-dist/index.cjs"
 
 branding:
   icon: "search"

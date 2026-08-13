@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-08-13
+
+### Fixed
+
+- GitHub Action bundle crashed at runtime with
+  `ReferenceError: module is not defined in ES module scope` because the
+  CommonJS bundle was named `action-dist/index.js` while `package.json`
+  declares `"type": "module"`. The bundle is now emitted as
+  `action-dist/index.cjs`, which Node always treats as CommonJS.
+
+### Changed
+
+- GitHub Action runtime upgraded from `node20` (deprecated on GitHub-hosted
+  runners) to `node24`.
+
 ## [0.1.0] - 2026-08-13
 
 ### Added
@@ -24,5 +39,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Optional label management (`needs-info`, `ready-to-reproduce`), off by default.
 - MIT license.
 
-[unreleased]: https://github.com/a70win-wq/issue2repro/compare/v0.1.0...HEAD
+[unreleased]: https://github.com/a70win-wq/issue2repro/compare/v0.1.1...HEAD
+[0.1.1]: https://github.com/a70win-wq/issue2repro/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/a70win-wq/issue2repro/releases/tag/v0.1.0
