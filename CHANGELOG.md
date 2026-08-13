@@ -1,0 +1,28 @@
+# Changelog
+
+All notable changes to this project are documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [Unreleased]
+
+## [0.1.0] - 2026-08-13
+
+### Added
+
+- Deterministic Markdown parser for GitHub issues and local files.
+- Field extraction: problem description, reproduction steps, expected and
+  actual behaviour, environment (OS/browser/runtime/app version), evidence
+  (logs/screenshots/reproduction links), and regression detection.
+- Missing-field detection with configurable required/optional fields.
+- Reproduction Readiness Score (0-100) with readiness status bands.
+- Terminal, Markdown, and JSON output formats.
+- CLI supporting local files, `owner/repo#123`, and GitHub issue URLs.
+- GitHub Action that creates/updates a single report comment per issue.
+- `.issue2repro.yml` configuration validated with Zod.
+- Optional label management (`needs-info`, `ready-to-reproduce`), off by default.
+- MIT license.
+
+[unreleased]: https://github.com/a70win-wq/issue2repro/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/a70win-wq/issue2repro/releases/tag/v0.1.0

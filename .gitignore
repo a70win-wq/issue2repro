@@ -1,0 +1,8 @@
+node_modules/
+dist/
+# Note: action-dist/ is intentionally NOT ignored — the bundled
+# action-dist/index.js must be committed so the GitHub Action can run.
+coverage/
+*.log
+.DS_Store
+.env

@@ -1,0 +1,24 @@
+name: "Issue2Repro"
+description: "Analyze new or edited issues and post a reproduction readiness report as a comment."
+author: "Issue2Repro contributors"
+
+inputs:
+  github-token:
+    description: "Token used to read the issue and post or update the report comment."
+    required: true
+
+outputs:
+  score:
+    description: "Reproduction readiness score (0-100)."
+  status:
+    description: "Readiness status: insufficient, needs-information, reproducible or excellent."
+  comment-action:
+    description: "Whether the report comment was created, updated or skipped."
+
+runs:
+  using: "node20"
+  main: "action-dist/index.js"
+
+branding:
+  icon: "search"
+  color: "blue"

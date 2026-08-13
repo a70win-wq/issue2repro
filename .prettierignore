@@ -1,0 +1,7 @@
+node_modules
+dist
+action-dist
+coverage
+package-lock.json
+tests/fixtures
+examples

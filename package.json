@@ -1,0 +1,65 @@
+{
+  "name": "issue2repro",
+  "version": "0.1.0",
+  "description": "Turn incomplete GitHub bug reports into structured, actionable reproduction reports for open-source maintainers.",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "bin": {
+    "issue2repro": "dist/cli.js"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "action-dist",
+    "action.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "github",
+    "open-source",
+    "developer-tools",
+    "issue-triage",
+    "maintainer-tools",
+    "bug-report",
+    "github-actions",
+    "cli",
+    "typescript"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/a70win-wq/issue2repro.git"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "bundle:action": "esbuild src/action.ts --bundle --platform=node --target=node20 --outfile=action-dist/index.js",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "dev": "tsx src/cli.ts",
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "@octokit/rest": "^21.1.1",
+    "commander": "^13.1.0",
+    "js-yaml": "^4.1.0",
+    "zod": "^3.24.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.20.0",
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^22.13.0",
+    "esbuild": "^0.25.0",
+    "eslint": "^9.20.0",
+    "prettier": "^3.5.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0",
+    "typescript-eslint": "^8.24.0",
+    "vitest": "^3.0.0"
+  }
+}

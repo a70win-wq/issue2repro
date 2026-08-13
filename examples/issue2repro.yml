@@ -1,0 +1,27 @@
+# Issue2Repro configuration
+# Place this file as `.issue2repro.yml` in the root of your repository.
+
+version: 1
+
+required:
+  - reproduction_steps
+  - expected_behavior
+  - actual_behavior
+  - environment
+  - app_version
+
+optional:
+  - logs
+  - screenshots
+  - minimal_reproduction
+
+score:
+  minimum: 70
+
+comment:
+  enabled: true
+
+labels:
+  enabled: false
+  incomplete: needs-info
+  ready: ready-to-reproduce
