@@ -1,4 +1,3 @@
-"use strict";
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -28,11 +27,10 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
   isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
   mod
 ));
-var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
 // node_modules/fast-content-type-parse/index.js
 var require_fast_content_type_parse = __commonJS({
-  "node_modules/fast-content-type-parse/index.js"(exports2, module2) {
+  "node_modules/fast-content-type-parse/index.js"(exports, module) {
     "use strict";
     var NullObject = function NullObject2() {
     };
@@ -119,21 +117,16 @@ var require_fast_content_type_parse = __commonJS({
       }
       return result;
     }
-    module2.exports.default = { parse: parse2, safeParse: safeParse2 };
-    module2.exports.parse = parse2;
-    module2.exports.safeParse = safeParse2;
-    module2.exports.defaultContentType = defaultContentType;
+    module.exports.default = { parse: parse2, safeParse: safeParse2 };
+    module.exports.parse = parse2;
+    module.exports.safeParse = safeParse2;
+    module.exports.defaultContentType = defaultContentType;
   }
 });
 
 // src/action.ts
-var action_exports = {};
-__export(action_exports, {
-  run: () => run
-});
-module.exports = __toCommonJS(action_exports);
-var import_node_fs = require("node:fs");
-var import_node_url = require("node:url");
+import { appendFileSync, readFileSync, realpathSync } from "node:fs";
+import { fileURLToPath } from "node:url";
 
 // node_modules/universal-user-agent/index.js
 function getUserAgent() {
@@ -11681,7 +11674,6 @@ function renderMarkdown(report, options = {}) {
 }
 
 // src/action.ts
-var import_meta = {};
 function getInput(name) {
   const key = `INPUT_${name.toUpperCase()}`;
   return process.env[key] ?? process.env[key.replace(/-/g, "_")];
@@ -11689,7 +11681,7 @@ function getInput(name) {
 function setOutput(name, value) {
   const outputFile = process.env["GITHUB_OUTPUT"];
   if (outputFile) {
-    (0, import_node_fs.appendFileSync)(outputFile, `${name}=${value}
+    appendFileSync(outputFile, `${name}=${value}
 `, "utf8");
   }
 }
@@ -11752,7 +11744,7 @@ async function run() {
       "No token provided. Pass `github-token` input (usually ${{ secrets.GITHUB_TOKEN }})."
     );
   }
-  const event = JSON.parse((0, import_node_fs.readFileSync)(eventPath, "utf8"));
+  const event = JSON.parse(readFileSync(eventPath, "utf8"));
   const [owner, repo] = repository.split("/");
   if (!owner || !repo) throw new Error(`Invalid GITHUB_REPOSITORY value: ${repository}`);
   if (!event.issue || event.issue.pull_request !== void 0) {
@@ -11842,7 +11834,7 @@ function isDirectRun() {
   const entry = process.argv[1];
   if (!entry) return false;
   try {
-    return (0, import_node_fs.realpathSync)(entry) === (0, import_node_fs.realpathSync)((0, import_node_url.fileURLToPath)(import_meta.url));
+    return realpathSync(entry) === realpathSync(fileURLToPath(import.meta.url));
   } catch {
     return false;
   }
@@ -11853,7 +11845,6 @@ if (isDirectRun()) {
     process.exit(1);
   });
 }
-// Annotate the CommonJS export names for ESM import in node:
-0 && (module.exports = {
+export {
   run
-});
+};

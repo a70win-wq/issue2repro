@@ -1,6 +1,6 @@
 {
   "name": "issue2repro",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Turn incomplete GitHub bug reports into structured, actionable reproduction reports for open-source maintainers.",
   "type": "module",
   "license": "MIT",
@@ -36,7 +36,7 @@
   },
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
-    "bundle:action": "esbuild src/action.ts --bundle --platform=node --target=node20 --outfile=action-dist/index.cjs",
+    "bundle:action": "esbuild src/action.ts --bundle --format=esm --platform=node --target=node20 --outfile=action-dist/index.js",
     "test": "vitest run",
     "test:watch": "vitest",
     "lint": "eslint .",

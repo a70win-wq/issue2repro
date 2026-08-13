@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.2] - 2026-08-13
+
+### Fixed
+
+- The v0.1.1 CommonJS bundle silently exited without analysing the issue:
+  esbuild shims `import.meta` to an empty object in CJS output, so the
+  action's direct-run detection (`import.meta.url`) always failed and
+  `run()` was never called. The bundle is now emitted as a genuine ESM
+  bundle (`action-dist/index.js`, matching `"type": "module"`), which
+  preserves `import.meta.url`.
+
 ## [0.1.1] - 2026-08-13
 
 ### Fixed
@@ -39,6 +50,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Optional label management (`needs-info`, `ready-to-reproduce`), off by default.
 - MIT license.
 
-[unreleased]: https://github.com/a70win-wq/issue2repro/compare/v0.1.1...HEAD
+[unreleased]: https://github.com/a70win-wq/issue2repro/compare/v0.1.2...HEAD
+[0.1.2]: https://github.com/a70win-wq/issue2repro/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/a70win-wq/issue2repro/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/a70win-wq/issue2repro/releases/tag/v0.1.0

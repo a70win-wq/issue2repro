@@ -17,7 +17,7 @@ outputs:
 
 runs:
   using: "node24"
-  main: "action-dist/index.cjs"
+  main: "action-dist/index.js"
 
 branding:
   icon: "search"
