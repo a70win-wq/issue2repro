@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- `docs/adoption.md` — verifiable adoption evidence (dogfooding status,
+  releases, evidence policy).
+- `docs/dogfooding.md` — full log of the self-test: problems found, root
+  causes, fixes and final verified result.
+
+### Changed
+
+- README: added live dogfood demo section, Quick start, honest npm
+  publishing status note, and refreshed the roadmap to match what shipped.
+
 ## [0.1.2] - 2026-08-13
 
 ### Fixed
@@ -17,6 +29,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `run()` was never called. The bundle is now emitted as a genuine ESM
   bundle (`action-dist/index.js`, matching `"type": "module"`), which
   preserves `import.meta.url`.
+
+### Verified
+
+- Self-hosted dogfood test passed end-to-end with this release: report
+  comment created on issue edit (25% — Insufficient) and updated in place
+  after the issue gained details (85% — Reproducible), without duplicate
+  comments (runs 31665001777 and 31665054679).
 
 ## [0.1.1] - 2026-08-13
 

@@ -30,6 +30,42 @@ Missing:
 npx issue2repro owner/repo#123
 ```
 
+> **Note:** npm publishing is in progress. Until `issue2repro` is published,
+> install the [GitHub Action](#github-action) (released and working) or run
+> the CLI [from source](#quick-start).
+
+## 🐶 Live dogfood demo
+
+Issue2Repro uses Issue2Repro on its own repository.
+
+See a real report generated automatically by the GitHub Action:
+
+👉 [Issue #1 — Dogfood test: Login broken](https://github.com/a70win-wq/issue2repro/issues/1)
+
+The test demonstrates:
+
+- automatic issue analysis
+- Reproduction Readiness scoring
+- missing-information detection
+- automatic GitHub comment creation
+- in-place comment updates when the issue is edited
+
+## Quick start
+
+**GitHub Action (released, no npm needed)** — add the workflow shown in the
+[GitHub Action](#github-action) section to any repository. Every new or
+edited issue receives a report comment automatically.
+
+**From source** (while npm publishing is in progress):
+
+```bash
+git clone https://github.com/a70win-wq/issue2repro.git
+cd issue2repro
+npm install
+npm run build
+node dist/cli.js owner/repo#123
+```
+
 ---
 
 ## What problem it solves
@@ -46,6 +82,10 @@ Issue2Repro is **not** a bug fixer. It makes bugs reproducible. It never
 invents missing information — unknown fields are reported as `Unknown`.
 
 ## CLI
+
+> The `npx issue2repro` commands below work once npm publishing is complete.
+> Until then, run the same commands from source with `node dist/cli.js`
+> (see [Quick start](#quick-start)).
 
 Analyze a local Markdown file:
 
@@ -200,14 +240,22 @@ improvements.
 
 ## Roadmap
 
-- v0.1.0 — local Markdown analysis, scoring, terminal/Markdown/JSON output
-- v0.2.0 — GitHub issue support (URL and `owner/repo#123`)
-- v0.3.0 — GitHub Action (create/update report comment)
-- v0.4.0 — `.issue2repro.yml` configuration
-- v0.5.0 — optional labels
+Everything below shipped in the v0.1.x releases:
+
+- local Markdown analysis, scoring, terminal/Markdown/JSON output
+- GitHub issue support (URL and `owner/repo#123`)
+- GitHub Action (create/update a single report comment per issue)
+- `.issue2repro.yml` configuration
+- optional labels (off by default)
+
+Next:
+
+- publish the CLI to npm (in progress)
+- first external repositories trying Issue2Repro
 - v1.0.0 — stable release after real-world testing
-- Future (explicitly out of scope for the MVP): AI-assisted triage and a
-  Codex mode. Any future AI feature will only suggest — humans decide.
+
+Future (explicitly out of scope for the MVP): AI-assisted triage and a
+Codex mode. Any future AI feature will only suggest — humans decide.
 
 ## License
 
